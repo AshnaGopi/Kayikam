@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import StudentLayout from '../../components/HOC/StudentLayout';
 
 function Profile() {
 
@@ -101,4 +102,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default StudentLayout(Profile);

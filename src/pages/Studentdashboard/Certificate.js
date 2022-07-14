@@ -1,4 +1,5 @@
 import React from 'react';
+import StudentLayout from '../../components/HOC/StudentLayout';
 
 function Certificate() {
   return (
@@ -8,4 +9,4 @@ function Certificate() {
   );
 }
 
-export default Certificate;
+export default StudentLayout(Certificate);

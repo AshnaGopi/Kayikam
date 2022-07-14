@@ -89,9 +89,18 @@ import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useHistory } from "react-router-dom"
-//import {useForm} from 'react-hook-form';
+import GeneralLayout from '../HOC/GeneralLayout';
+import {useForm} from 'react-hook-form';
+
 
 function Form() {
+
+  const {  register,
+    handleSubmit,
+     formState: {errors},
+      reset,
+    }=useForm();
+   
 
   // const {formState={errors}}=useForm();
 
@@ -102,20 +111,29 @@ function Form() {
   const [loading, setloading] = useState(false);
   const [user, setUser] = useState("");
 
+ 
+
+
 
   const login = () => {
     setloading(true)
     signInWithEmailAndPassword(auth, loginEmail, loginPassword).then((userCredential) => {
       const user = userCredential.user
       setUser(user)
-      // history.push("/student/login/dashboard")
-      
+      history.push("/student/dashboard")
     }).catch((err) => {
       const error = err.message
     }
     )
     setloading(false)
   }
+
+  const onSub=(data) => {
+ data.id=Date.now();
+  data.fav=false;
+  console.log(data);
+   reset();
+};
 
   const logout = () => {
     signOut(auth).then(() => setUser(null)).catch((err) => {
@@ -127,34 +145,30 @@ function Form() {
 
   return (
     <div className='col-sm-4 shadow rounded g-5'>
-      {user ? 
-         <div><h1>{user.email}</h1>
-          <button onClick={logout}>log out</button>
-          <a href='/student/login/dashboard'>student</a>
-         </div>
-        
-
-         
-       :
+    
         <div>
           <h1 className="text-center pt-3 text-secondary h2">Student Login</h1>
 
           <div>
 
 
-
+            <form onSubmit={handleSubmit(onSub)}>
 
             <div className='form-group'>
               <label className="col-form-label">Email</label>
-              <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setLoginEmail(e.target.value)} />
+              <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setLoginEmail(e.target.value)} {...register("email", {required:"Email is required",
+       message:"Invalid email address",})} />
+       {errors.email && (<small className='text-danger'>{errors.email.message}</small>)}
 
             </div>
-            <div className='form-group'>
+<            div className='form-group'>
               <label className="col-form-label">Password</label>
-              <input className='form-control' type="password" placeholder='enter password' onChange={(e) => setLoginPassword(e.target.value)} />
+              <input className='form-control' type="password" placeholder='enter password' onChange={(e) => setLoginPassword(e.target.value)} {...register("password", {required:"Password is required",
+       message:"Invalid password",})} />
+       {errors.password && (<small className='text-danger'>{errors.password.message}</small>)}
             </div>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
-              <button className='btn btn-dark submit-btn rounded m-3 px-5' onClick={login}>
+              <button className='btn btn-dark submit-btn rounded m-3 px-5'>
                   {loading ? 'Loading...' : 'Sign In'}
               </button>
             </div>
@@ -163,12 +177,18 @@ function Form() {
               <a href="/register" class="link">Register</a>
             </div>
 
+            </form>
+
           </div>
         </div>
-      }
     </div>
   );
 }
 
 export default Form;
+//export default GeneralLayout(Form);
 
+
+{/* <div><h1>{user.email}</h1>
+<button onClick={logout}>log out</button>
+<a href='/student/login/dashboard'>student</a> */}

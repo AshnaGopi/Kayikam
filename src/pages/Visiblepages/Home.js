@@ -1,4 +1,5 @@
 import React from 'react';
+import GeneralLayout from '../../components/HOC/GeneralLayout';
 
 function Home() {
 
@@ -29,22 +30,14 @@ function Home() {
                         justifyContent: "center",
                         alignItems: "center"
                     }}><button className='btn btn-dark submit-btn rounded m-3 px-5'><a href="/faculty/login" class="link" style={{ color: 'white', textDecoration: 'none' }}>Login for Faculty</a></button></div>
+                    <a href='/faculty/facultydashboard' class='link'>Faculty</a>
                 </div>
-
-
-
-
-            {/* </div>
-                
-                <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5'>
-                
-                </div>
-            </div> */}
         </div>
     );
 }
 
 
 
+//export default Home;
 
-export default Home;
+export default GeneralLayout(Home);

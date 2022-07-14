@@ -92,6 +92,7 @@ import { createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase';
 import {useForm} from 'react-hook-form';
+import GeneralLayout from '../HOC/GeneralLayout';
 
 function Reg() {
 
@@ -122,6 +123,13 @@ function Reg() {
     )
   }
 
+  const onSub=(data) => {
+    data.id=Date.now();
+     data.fav=false;
+     console.log(data);
+      reset();
+   };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -139,7 +147,7 @@ function Reg() {
 
   <div>
 
-    <form>
+    <form onSubmit={handleSubmit(onSub)}>
 
 
   <div className='form-group'>
@@ -150,15 +158,18 @@ function Reg() {
 
     <div className='form-group'>
     <label className="col-form-label">Email</label>
-    <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setEmail(e.target.value)} />
-    
+    <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setEmail(e.target.value)} {...register("email", {required:"Email is required",
+       message:"Invalid email address",})}/>
+       {errors.email && (<small className='text-danger'>{errors.email.message}</small>)} 
     </div>
     <div className='form-group'>
     <label className="col-form-label">Password</label>
-    <input className='form-control' type="password" placeholder='enter password' onChange={(e) => setPassword(e.target.value)} />
-    </div>
+    <input className='form-control' type="password" placeholder='enter password' onChange={(e) => setPassword(e.target.value)} {...register("password", {required:"Password is required",
+       message:"Invalid password",})} />
+        {errors.password && (<small className='text-danger'>{errors.password.message}</small>)}
+        </div>
     <div style={{display: "flex",justifyContent: "center", alignItems: "center" }} >
-    <button className='btn btn-dark submit-btn rounded m-3 px-5' onClick={signUp}>Register</button>
+    <button className='btn btn-dark submit-btn rounded m-3 px-5' >Register</button>
     </div>    
     </form>
   </div>
@@ -169,6 +180,6 @@ function Reg() {
   );
 }
 
-
 export default Reg;
+//export default GeneralLayout(Reg);
 

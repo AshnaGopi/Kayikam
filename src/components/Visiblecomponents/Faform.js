@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import GeneralLayout from '../HOC/GeneralLayout';
 //import {useForm} from 'react-hook-form';
 
 function FaForm() {
@@ -56,6 +57,7 @@ function FaForm() {
             </div>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
               <button className='btn btn-dark submit-btn rounded m-3 px-5' onClick={login}>Sign In</button>
+              <a href='/faculty/facultydashboard' class='link'>Faculty</a>
             </div>
            
           </div>
@@ -66,5 +68,7 @@ function FaForm() {
 }
 
 export default FaForm;
+
+ //export default GeneralLayout(FaForm);
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import GeneralLayout from '../HOC/GeneralLayout';
 
 function Nav() {
 
@@ -37,3 +38,4 @@ function Nav() {
 }
 
 export default Nav;
+//export default GeneralLayout(Nav);

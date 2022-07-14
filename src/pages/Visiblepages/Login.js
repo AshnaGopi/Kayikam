@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from '../../components/Visiblecomponents/Form';
+import GeneralLayout from '../../components/HOC/GeneralLayout';
 
 function Login() {
   return (
@@ -17,4 +18,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default GeneralLayout(Login);

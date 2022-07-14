@@ -1,7 +1,8 @@
 import React from 'react';
 import Faform from '../../components/Visiblecomponents/Faform';
+import GeneralLayout from '../../components/HOC/GeneralLayout';
 
-function Faculty() {
+function Facultyform() {
   return (
     <div>
 
@@ -17,4 +18,4 @@ function Faculty() {
   );
 }
 
-export default Faculty;
+export default GeneralLayout(Facultyform);

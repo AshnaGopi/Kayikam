@@ -1,4 +1,5 @@
 import React from 'react';
+import GeneralLayout from '../../components/HOC/GeneralLayout';
 
 function AboutUs() {
   return (
@@ -15,4 +16,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default GeneralLayout(AboutUs);

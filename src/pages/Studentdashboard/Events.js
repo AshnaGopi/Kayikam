@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import StudentLayout from '../../components/HOC/StudentLayout';
 
 function Events() {
 
@@ -41,5 +42,5 @@ function Events() {
   );
 }
 
-export default Events;
+export default StudentLayout(Events);
 

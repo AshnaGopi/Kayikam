@@ -1,4 +1,5 @@
 import React from 'react';
+import StudentLayout from '../../components/HOC/StudentLayout';
 
 function Result() {
   return (
@@ -8,4 +9,4 @@ function Result() {
   );
 }
 
-export default Result;
+export default StudentLayout(Result);

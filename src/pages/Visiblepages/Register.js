@@ -1,5 +1,6 @@
 import React from 'react';
 import Reg from '../../components/Visiblecomponents/Reg';
+import GeneralLayout from '../../components/HOC/GeneralLayout';
 
 function Register() {
 
@@ -19,4 +20,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default GeneralLayout(Register);

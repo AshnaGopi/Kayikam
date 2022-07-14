@@ -14,15 +14,18 @@ import Login from './pages/Visiblepages/Login';
 import Register from './pages/Visiblepages/Register';
 import Dashboard from './pages/Studentdashboard/Dashboard';
 import { useState } from 'react';
-
-import Faculty from './pages/Visiblepages/Faculty';
+import Student from './pages/Student';
+import Facultyform from './pages/Visiblepages/Facultyform';
+import Faculty from './pages/Faculty';
 
 
 function App() {
 
   return (
     <Router>
-      <Nav />
+      <Student/>
+      <Faculty/>
+      {/* <Faculty/> */}
       <Switch>
         <Route exact path="/">
           <Home />
@@ -36,11 +39,9 @@ function App() {
         <Route path="/register">
           <Register />
         </Route>
-
         <Route path="/faculty/login">
-          <Faculty />
+          <Facultyform />
         </Route>
-        <Route path='/student/login/dashboard'><Dashboard/></Route>
         <Route path="*">
           <NotFound />
         </Route>

@@ -4,40 +4,40 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
 
-export const Sidebar=[
+export const Sidebarfaculty=[
     {
         title: 'Home',
-        path:"/student/dashboard",
+        path:"/faculty/facultydashboard",
         icon: <AiIcons.AiFillHome/>,
         cName:"nav-text"
     },
     {
-        title: 'Profile',
-        path:"/student/profile",
+        title: 'Students Details',
+        path:"/faculty/studentdetails",
         icon: <AiIcons.AiOutlineUser/>,
         cName:"nav-text"
     },
     {
-        title: 'Events',
-        path:"/student/events",
+        title: 'Event Registrations',
+        path:"/faculty/eventreg",
         icon: <AiIcons.AiOutlineThunderbolt/>,
         cName:"nav-text"
     },
     {
-        title: 'Certificate',
-        path:"/student/certificate",
+        title: 'Generate Certificate',
+        path:"/faculty/generatecertificate",
         icon: <AiIcons.AiOutlineBook/>,
         cName:"nav-text"
     },
     {
-        title: 'Results',
-        path:"/student/result",
+        title: 'Result Announcement',
+        path:"/faculty/resultannounce",
         icon: <AiIcons.AiOutlineTrophy/>,
         cName:"nav-text"
     },
     {
-        title: 'Complaints',
-        path:"/student/complaints",
+        title: 'Complaint forms',
+        path:"/faculty/complaintforms",
         icon: <AiIcons.AiFillInfoCircle/>,
         cName:"nav-text"
     }

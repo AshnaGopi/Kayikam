@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import StudentLayout from '../../components/HOC/StudentLayout';
 
 function Complaints() {
 
@@ -13,7 +14,7 @@ function Complaints() {
   const postData = async(e) =>{
     e.preventDefault()
     const {name,email,complaint}=details;
-    const res= await fetch("https://fir-sidebar-default-rtdb.firebaseio.com/zxcform.json",
+    const res= await fetch("https://fir-project-e5317-default-rtdb.firebaseio.com/complaintform.json",
     {
       method:'POST',
       headers:{
@@ -63,4 +64,4 @@ function Complaints() {
   );
 }
 
-export default Complaints;
+export default StudentLayout(Complaints);
