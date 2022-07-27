@@ -14,6 +14,8 @@ import EventReg from './Facultypages/EventReg';
 import GenerateCertificate from './Facultypages/GenerateCertificate';
 import ResultAnnouncement from './Facultypages/ResultAnnouncement';
 import ComplaintForms from './Facultypages/ComplaintForms';
+import CertApp from '../CertApp';
+import News from './Facultypages/News';
 
 
 function Faculty() {
@@ -29,7 +31,11 @@ function Faculty() {
           <EventReg/>
         </Route>
         <Route path='/faculty/studentdetails'><StudentDetails/></Route>
+        <Route path='/faculty/certapp'>
+          <CertApp/>
+        </Route>
         <Route path='/faculty/generatecertificate'><GenerateCertificate/></Route>
+        <Route path='/faculty/news'><News/></Route>
         <Route path='/faculty/resultannounce'><ResultAnnouncement/></Route>
         <Route path='/faculty/complaintforms'><ComplaintForms/></Route>
        </Switch>

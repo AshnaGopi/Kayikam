@@ -88,93 +88,63 @@
 import { useState } from 'react';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import GeneralLayout from '../HOC/GeneralLayout';
 import {useForm} from 'react-hook-form';
+import { signIn } from '../../SupabaseHelper';
 
 
 function Form() {
 
-  const {  register,
+  const { 
+     register,
     handleSubmit,
      formState: {errors},
-      reset,
     }=useForm();
    
 
-  // const {formState={errors}}=useForm();
-
   const history = useHistory()
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+
   const [loading, setloading] = useState(false);
-  const [user, setUser] = useState("");
+  const [error, seterror] = useState(false);
 
- 
-
-
-
-  const login = () => {
-    setloading(true)
-    signInWithEmailAndPassword(auth, loginEmail, loginPassword).then((userCredential) => {
-      const user = userCredential.user
-      setUser(user)
-      history.push("/student/dashboard")
-    }).catch((err) => {
-      const error = err.message
-    }
-    )
-    setloading(false)
-  }
-
-  const onSub=(data) => {
- data.id=Date.now();
-  data.fav=false;
+ const onSubmit = async (data) => {
   console.log(data);
-   reset();
-};
-
-  const logout = () => {
-    signOut(auth).then(() => setUser(null)).catch((err) => {
-      const error = err.message
-    }
-    )
-  }
+  const {error} = await signIn({email: data.email, password: data.password})
+  error ? seterror(true) : history.push('/student/dashboard')
+ }
 
 
   return (
+
     <div className='col-sm-4 shadow rounded g-5'>
     
         <div>
           <h1 className="text-center pt-3 text-secondary h2">Student Login</h1>
 
           <div>
-
-
-            <form onSubmit={handleSubmit(onSub)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
 
             <div className='form-group'>
               <label className="col-form-label">Email</label>
-              <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setLoginEmail(e.target.value)} {...register("email", {required:"Email is required",
-       message:"Invalid email address",})} />
+              <input className='form-control' type="email" placeholder='enter email' {...register("email", {required:"Email is required"})} />
        {errors.email && (<small className='text-danger'>{errors.email.message}</small>)}
 
             </div>
 <            div className='form-group'>
               <label className="col-form-label">Password</label>
-              <input className='form-control' type="password" placeholder='enter password' onChange={(e) => setLoginPassword(e.target.value)} {...register("password", {required:"Password is required",
-       message:"Invalid password",})} />
+              <input className='form-control' type="password" placeholder='enter password' {...register("password", {required:"Password is required",})} />
        {errors.password && (<small className='text-danger'>{errors.password.message}</small>)}
             </div>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
-              <button className='btn btn-dark submit-btn rounded m-3 px-5'>
+              <button type='submit' className='btn btn-dark submit-btn rounded m-3 px-5'>
                   {loading ? 'Loading...' : 'Sign In'}
               </button>
             </div>
             <div className='text-center m-3'>
               don't have an account?
-              <a href="/register" class="link">Register</a>
+              <a href="/register" className="link">Register</a>
             </div>
 
             </form>
@@ -182,6 +152,7 @@ function Form() {
           </div>
         </div>
     </div>
+
   );
 }
 

@@ -1,92 +1,120 @@
-.card-p{ 
-    width: 6rem;
-    background-color:rgb(16, 16, 16);
-    height: 18vh;
-    padding: 5px;
-    margin-left:30%;
-    margin-top: 5%;  
-    margin-bottom: 18px;
-    position: absolute; 
-    position: relative;    
- }
-
- .card-c{
-  width: 6rem;
-  background-color:rgb(16, 16, 16);
-  height: 17.5vh;
-  padding: 3px;
-  margin-left:80%;
-  margin-top: 5%;
-  margin-bottom: 18px;
-  position: relative; 
- }
- .card-e{
-  width: 6rem;
-  background-color:rgb(16, 16, 16);
-  height: 18vh;
-  padding: 5px;
-  margin-left:30%;
-  margin-top: 2%;
-  margin-bottom: 18px;
-  position: relative; 
- }
-
-.card-m{
+.cardsp{ 
   width: 6rem;
   background-color:rgb(16, 16, 16);
   height: 17vh;
-  padding: 1px;
-  margin-left:80%;
-  margin-top: 2%;
-  margin-bottom: 18px;
-  position: relative; 
-}
-
-.card-r{
-  width: 6rem;
-  background-color:rgb(16, 16, 16);
-  height: 17vh;
-  padding: 2px;
-  margin-left:500%;
-  margin-top: 1%;
-  margin-bottom: 18px;
-  position: relative; 
-}
-
- .decor{
-   text-decoration: none;
-   height: 17vh;
-   width:6rem;
- }
-
- .containers{
-    height: 65px;
-    width: 90px;
-    padding:0px ;
- }
-
- span{
-    margin-left: 18px;
- }
-
- .cert{
-   text-align: center;
-   margin-left: 100px;
- }
-
- .com{
-   margin-left:30%;
-   height: 100px;
-   padding: 10px;
-   align-content: center;
- }
-
- .come{
-  margin-left:15%;
-  margin-top: 50px;
-  height: 100rem;
-  width: 100rem;
   padding: 5px;
-  position: absolute;
+  margin-top: 25px;
+  margin-bottom: 18px;
+  position: absolute; 
+  position: relative;    
+}
+
+.cardsc{
+width: 6rem;
+background-color:rgb(16, 16, 16);
+height: 17.5vh;
+padding: 3px;
+
+margin-bottom: 10px;
+position: relative; 
+}
+.cardse{
+width: 6rem;
+background-color:rgb(16, 16, 16);
+height: 18vh;
+padding: 5px;
+margin-bottom: 18px;
+position: relative; 
+}
+
+.cardsm{
+width: 6rem;
+background-color:rgb(16, 16, 16);
+height: 17vh;
+padding: 1px;
+margin-top: 25px;
+margin-bottom: 18px;
+position: relative; 
+}
+
+.cardsr{
+width: 6rem;
+background-color:#000;
+height: 17vh;
+padding: 2px;
+margin-top: 25px;
+margin-bottom: 18px;
+position: relative; 
+
+}
+
+.decor{
+ text-decoration: none;
+ height: 2vh;
+ width:2vh;
+ margin-left: 29%;
+ margin-top: 190px;
+}
+
+.containers{
+  height: 60px;
+  width: 90px;
+  padding:0px ;
   
- }
+}
+
+.container-fit{
+  height: 60px;
+}
+
+span{
+  margin-left: 18px;
+}
+
+.cert{
+ text-align: center;
+ margin-left: 100px;
+}
+
+.com{
+margin-left:30%;
+height: 100px;
+padding: 10px;
+align-content: center;
+}
+
+.come{
+margin-left:15%;
+margin-top: 50px;
+height: 100rem;
+width: 100rem;
+padding: 5px;
+position: absolute;
+
+}
+
+.events{
+  margin-top: 0.3rem;
+  vertical-align: text-bottom;
+
+  margin-left: 0.2rem;
+}
+.events label{
+  margin-left: 0.2rem;
+}
+
+
+.detail{
+  font-size: 20px;
+  margin-left: 50px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  color: darkslategrey;
+}
+
+th {
+  border-bottom: 1px solid lightskyblue;
+  text-align: center;
+  margin-left: 50px;
+ 
+}

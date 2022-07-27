@@ -1,28 +1,66 @@
 import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import FacultyLayout from '../../components/HOC/FacultyLayout';
+import { useAuthContext } from '../../store/Context';
+import { supabase } from '../../Supabase';
+
 
 function ComplaintForms() {
 
 
-  const details = [
+  const {user} = useAuthContext()
+  const [complaint, setcomplaint] = useState(null);
+  const [error, seterror] = useState(false);
 
-    { name: "Abcd", email: "abcd@agh.dygdh", complaint: "No proper gym equipment" },
-    { name: "efgh", email: "dvf@sdvs.com", complaint: "No yoga practice" }
+  useEffect(() => {
+    user && getComplaints()
+  }, [user]);
 
-  ]
+  const getComplaints = async () => {
+    const {data,error } = await supabase
+    .from('complaints')
+    .select(`
+        email,
+      complaint
+    `)
+    const complaintData = data.map((item) => item.name)
+      error ? seterror(true) : setcomplaint(complaintData)
+    // error ? seterror(true) : setevents(eventsData)
+   }
+
+  // export const details= async(data) =>[
+  //   {
+
+  //  const {error } = await supabase
+  //   .from('complaints')
+  //   .select(`
+  //     student (
+  //       email
+  //     ),
+  //     complaint
+  //   `)
+  //     }
+  // ]
+
+ 
+
+    
 
   return (
+    <>
+    <h1 className="text-center pt-3 text-secondary h2">Complaint Forms</h1>
     <div className='fa'>
     <table>
       <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Complaint</th>
+        {/* <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Name</th> */}
+        <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Email</th>
+        <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Complaint</th>
       </tr>
-      {details.map((val, key) => {
+      {complaint.map((val, key) => {
         return (
           <tr key={key}>
-            <td>{val.name}</td>
+            {/* <td>{val.name}</td> */}
             <td>{val.email}</td>
             <td>{val.complaint}</td>
           </tr>
@@ -30,6 +68,7 @@ function ComplaintForms() {
       })}
     </table> 
     </div >
+    </>
   );
 }
 

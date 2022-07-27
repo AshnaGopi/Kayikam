@@ -1,185 +1,121 @@
-// //import React from 'react';
-// import {useForm} from 'react-hook-form';
-// //import { useHistory } from 'react-router-dom';
-// import { createUserWithEmailAndPassword,} from 'firebase/auth';
-// import { useState } from 'react';
-// import { auth } from '../firebase';
-
-// export default function Reg({formSubc}) {
-//   //let history=useHistory()
-
-//     const {
-//         register,
-//         handleSubmit,
-//         formState:{errors},
-//         reset,
-//       }=useForm();
-
-//       // const onSub=(data) => {
-//       //   data.id=Date.now();
-//       //   //data.fav=false;
-//       //   formSubc(data);
-//       //   console.log(data);
-//       //  // history.push("/student")
-
-//       // };
-
-//       const signUp = () => {
-//         createUserWithEmailAndPassword(auth,name, email, password).then((userCredential) => {
-//           const user = userCredential.user
-//           setUser(user)
-//         }).catch((err) => {
-//           const error = err.message
-//         })
-//       }
-
-//       const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [name, setName] = useState("");
-//   const [user, setUser] = useState("");
-
-//   return (
-//     <div className='col-sm-4 shadow rounded g-5'>
-//     {user ? <div><h1>{user.email}</h1></div> : 
-//      <div>
-//       <h1 className="text-center pt-3 text-secondary h2">Register</h1>
-//     <form >
-//       <div className="form-group">
-//       <label className="col-form-label">Name</label>
-//       <input type="text" onChange={(e) => setName(e.target.value)} />
-//       {/* className='form-control' {...register("name", {required:"Name is required" })}/>
-//         {errors.name && (<small className='text-danger'>{errors.name.message}</small>)} */}
-//         </div>
-//         <div className="form-group">
-//       <label className="col-form-label">Email</label>
-//       <input type="email" onChange={(e) => setEmail(e.target.value)}/>
-//        {/* className='form-control' {...register("email", {required:"Email is required",
-//     message:"Invalid email address",})}/>
-//       {errors.email && (<small className='text-danger'>{errors.email.message}</small>)} */}
-//         </div>
-//         <div className="form-group">
-//         <label className="col-form-label">Password</label>
-//         <input type="password" onChange={(e) => setPassword(e.target.value)} />
-//         {/* className='form-control' {...register("password", {required:"Password is required",
-//       message:"Invalid password",})}/>
-//         {errors.password && (<small className='text-danger'>{errors.password.message}</small>)} */}
-//           </div>  
-//         {/* <div className="form-group">
-//       <label className="col-form-label">Phone</label>
-//       <input type="text" className='form-control' {...register("phone", {required:"Phone is required",
-//     pattern:{value:/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
-//     message:"Invalid phone no",}})}/>
-//       {errors.phone && (<small className='text-danger'>{errors.phone.message}</small>)}
-//         </div>    */}
-//         <div style={{
-//           display: "flex",
-//           justifyContent: "center",
-//           alignItems: "center"
-//         }}><button onClick={signUp} className='btn btn-dark submit-btn rounded m-3 px-5'>
-//           Register
-//           {/* <a href="/student" class='link'>Register</a> */}
-//           </button></div> 
-
-//     </form>
-//       </div>} 
-
-//   </div>
-//   );
-//       }
-
-
-import { createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useState } from 'react';
-import { auth } from '../../firebase';
 import {useForm} from 'react-hook-form';
-import GeneralLayout from '../HOC/GeneralLayout';
+import { useHistory } from "react-router-dom";
+import { signUp } from '../../SupabaseHelper';
+import { useAuthContext } from '../../store/Context';
+import { supabase } from '../../Supabase';
+
+
 
 function Reg() {
+
+  const history = useHistory()
+  // const {user} = useAuthContext()
+
+    const [loading, setloading] = useState(false)
+    const [error, seterror] = useState(false);
 
        const {
         register,
          handleSubmit,
          formState:{errors},
-         reset,
        }=useForm();
 
 
-  const signUp = (e) => {
-    e.preventDefault()
-    console.log(email,'s',password);
-    createUserWithEmailAndPassword(auth,email, password).then((userCredential) => {
-      const user = userCredential.user
-      setUser(user)
-    }).catch((err) => {
-      const error = err.message
-    })
-  }
- 
-
-  const logout = () =>{
-    signOut(auth).then(()=>setUser(null)).catch((err) => {
-      const error = err.message
+       const onSubmit = async (data) => {
+        console.log(data);
+        seterror(null)
+        setloading(true)
+        const {error} = await supabase.auth.signUp({email: data.email, password: data.password,},{name:data.name,semester:data.semester,gender:data.gender,ktu_id:data.ktu_id,branch:data.branch,})
+        setloading(false)
+        error ? seterror(error) : history.push('/student/dashboard')
     }
-    )
-  }
-
-  const onSub=(data) => {
-    data.id=Date.now();
-     data.fav=false;
-     console.log(data);
-      reset();
-   };
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   
-  
-
-  const [user, setUser] = useState("");
   return (
-    <div className='col-sm-4 shadow rounded g-5'>
-      {user ? <div><h1>{user.email}</h1>
 
-<button onClick={logout}>log out</button>
-</div> :
+    <div className='col-sm-4 shadow rounded g-5'>
 <div>
   <h1 className="text-center pt-3 text-secondary h2">Register</h1>
 
   <div>
 
-    <form onSubmit={handleSubmit(onSub)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
 
-
+{/* name */}
   <div className='form-group'>
     <label className="col-form-label">Name</label>
-    <input className='form-control' type="text" placeholder='enter name'/>
-    
+    <input className='form-control' type="text" placeholder='enter name' {...register("name", {required:"This field is required"})}/>
+    {errors.name && (<small className='text-danger'>{errors.name.message}</small>)} 
+    </div>
+
+    {/* gender */}
+    <div className='form-group'>
+      <h6>Gender</h6>
+      <div className='form-check'>
+        <label className="col-form-label">Male</label>
+        <input className='form-check-input' type="radio" value='male' {...register("gender", {required:"This field is required",
+          message:"Invalid name",})}/>
+      </div>
+      <div className='form-check'>
+        <label className="col-form-label">Female</label>
+        <input className='form-check-input' type="radio" value='female' {...register("gender", {required:"This field is required",
+        message:"Invalid name",})}/>
+      </div>
+      <div className='form-check'>
+        <label className="col-form-label">Other</label>
+        <input className='form-check-input' type="radio" value='other' {...register("gender", {required:"This field is required",
+        message:"Invalid name",})}/>
+      </div>
+      {errors.name && (<small className='text-danger'>{errors.name.message}</small>)} 
+    </div>
+
+{/* ktu id */}
+    <div className='form-group'>
+    <label className="col-form-label">KTU ID</label>
+    <input className='form-control' type="text" placeholder='enter name' {...register("ktu_id", {required:"This field is required"})}/>
+    {errors.ktu_id && (<small className='text-danger'>{errors.ktu_id.message}</small>)} 
+    </div>
+
+{/* semester */}
+    <div className='form-group'>
+    <label className="col-form-label">Semester</label>
+    <input className='form-control' type="text" placeholder='enter Semester' {...register("semester", {required:"This field is required"})}/>
+    {errors.semester && (<small className='text-danger'>{errors.semester.message}</small>)} 
+    </div>
+
+    {/* branch */}
+    <div className='form-group'>
+    <label className="col-form-label">Branch</label>
+    <input className='form-control' type="text" placeholder='enter Branch' {...register("branch", {required:"This field is required"})}/>
+    {errors.branch && (<small className='text-danger'>{errors.branch.message}</small>)} 
     </div>
 
     <div className='form-group'>
     <label className="col-form-label">Email</label>
-    <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setEmail(e.target.value)} {...register("email", {required:"Email is required",
+    <input className='form-control' type="email" placeholder='enter email' {...register("email", {required:"Email is required",
        message:"Invalid email address",})}/>
        {errors.email && (<small className='text-danger'>{errors.email.message}</small>)} 
     </div>
     <div className='form-group'>
     <label className="col-form-label">Password</label>
-    <input className='form-control' type="password" placeholder='enter password' onChange={(e) => setPassword(e.target.value)} {...register("password", {required:"Password is required",
+    <input className='form-control' type="password" placeholder='enter password'  {...register("password", {required:"Password is required",
        message:"Invalid password",})} />
         {errors.password && (<small className='text-danger'>{errors.password.message}</small>)}
         </div>
     <div style={{display: "flex",justifyContent: "center", alignItems: "center" }} >
-    <button className='btn btn-dark submit-btn rounded m-3 px-5' >Register</button>
+    <button className='btn btn-dark submit-btn rounded m-3 px-5' type='submit' >
+      {loading ? 'Loading...' : 'Register' }
+      </button>
     </div>    
     </form>
   </div>
 
 </div>
-}
     </div>
+
   );
 }
 
 export default Reg;
-//export default GeneralLayout(Reg);
+
 

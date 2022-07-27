@@ -1,0 +1,246 @@
+
+  
+
+  
+  
+  
+  
+  header.bg-primary {
+    background-color: #fff !important;
+  }
+ 
+  
+
+  
+  /* Button.btn {
+    display: inline-block;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #18bc9c;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid #18bc9c;
+    
+    padding: .375rem .75rem;
+    font-size: 1.5rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,black .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+  #modal Button{
+    font-size:1.2rem;
+    font-weight: 100;
+  
+  } */
+  
+  
+  
+  
+  /* #clear {
+    font-size:0.5rem;
+    border-radius: 0;
+    padding: .3rem .4rem;
+    color: #18bc9c !important;
+    border-color: #18bc9c !important;
+    
+  }
+    #clear:hover, #clear:focus{
+      color: white !important;
+      background-color: red !important;
+      border-color: red !important;
+  
+    }
+  
+  #clear:active {
+    background-color: red !important;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  button.btn-outline-light {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  
+  
+  Button.btn-xl { */
+    /*padding: 1rem 1.75rem;*/
+    /* font-size: 1.25rem;
+  }
+  
+  .btn-outline-danger {
+    color: orangered !important;
+    border-color: orangered !important;
+  }
+  .btn-outline-danger:hover {
+    color: white !important;
+  }
+  
+  .btn-secondary {
+    color: gray !important;
+    border-color: gray !important;
+  }
+  
+  .btn-secondary:hover, .btn-secondary:focus {
+    color: white !important;
+  }
+  
+  
+  
+  .col {
+    flex: auto !important;
+  }
+  .btn-social {
+      width: 3.25rem;
+      height: 3.25rem;
+      font-size: 1.25rem;
+      line-height: 2rem;
+  }
+  
+  
+  #check {
+    border: 20px solid #18bc9c;
+    color: green;
+    border-radius: 100rem;
+    background-color: transparent;
+    
+  }
+  
+  .bg-secondary {
+    background-color: #2c3e50 !important;
+  }
+  
+  .bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase !important;
+  }
+  
+  
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+ 
+  
+  .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  
+  
+   .react-multiple-carousel__arrow {
+     margin-bottom: 82px !important;
+  
+   }
+  
+  
+  div.hr {
+    max-width: 10rem;
+    align-items: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-color: red;
+  }
+  
+  
+  .footer {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    background-color: #2c3e50;
+    color: #fff;
+  }
+  
+  a:hover{
+    color: #18bc9c !important;
+  }
+  
+  
+  
+    #carousel-multi{
+      alignment: center;
+    }
+  
+  
+  
+   */
+  
+  
+  /*---------------------*/
+  
+  
+   @media (min-width: 992px) {
+  
+  
+     .container.carousel{
+          width: 50%;
+          padding-left: 180px;
+    }
+     header.masthead {
+      /* padding-top: calc(6rem + 72px); */
+      padding-top: 20px;
+      padding-bottom: 80px;
+      margin-left: 180px;
+  
+    }
+  
+    header.masthead h1 {
+      font-size: 6rem;
+      line-height: 3rem;
+      font-weight: 700;
+  
+    }
+  
+    #clear {
+      color: #18bc9c !important;
+      border-color: #18bc9c !important;
+      font-size:0.8rem;
+      padding: .375rem .75rem;
+     
+  
+    }
+  
+  
+    #carousel-multi{
+      width: 64%;
+      alignment: center;
+    }
+  
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* .App{
+    font-family: "Montserrat", sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  } */
+  
+   

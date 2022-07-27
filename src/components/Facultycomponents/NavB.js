@@ -21,7 +21,7 @@ function NavB() {
         </Link>
     </div>
     
-    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+    <nav className={sidebar ? 'nav-side active' : 'nav-side'}>
     
         <ul className="nav-menu-item" >
             <li className="navbar-toggle">

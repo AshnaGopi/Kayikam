@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import GeneralLayout from '../HOC/GeneralLayout';
 
+
 function Nav() {
 
   return (

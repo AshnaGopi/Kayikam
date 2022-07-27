@@ -1,43 +1,74 @@
-import React from 'react';
+
+import { useEffect } from 'react';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import StudentLayout from '../../components/HOC/StudentLayout';
+import { useAuthContext } from '../../store/Context';
+import { supabase } from '../../Supabase';
+import './Dashboard.css';
 
 function Events() {
 
-  const [details, setDetails] = useState({
-    name:'',
-    email:'',
-    complaint:'',
-  });
+  const {user} = useAuthContext()
+
+  const [loading, setloading] = useState(false)
+  const [error, seterror] = useState(false);
+  const [events, setevents] = useState(null);
+
+     const {
+      register,
+       handleSubmit,
+       formState:{errors},
+     }=useForm()
+
+     useEffect(() => {
+       user && getEvents()
+     }, [user]);
+
+     const getEvents = async () => {
+      const { data, error } = await supabase.from('events').select()
+      const eventsData = data.map((item) => item.name)
+      error ? seterror(true) : setevents(eventsData)
+     }
+
+     const onSubmit = async (data) => {
+      console.log(data);
+     }
+
 
   return (
     <div className='com'>
 
       <div className='col-sm-8 shadow rounded g-5' style={{padding:'30px',}}>
-      <h1 className="text-center pt-3 text-secondary h2">Event Registration</h1>
+        <h1 className="text-center pt-3 text-secondary h2">Event Registration</h1>
+        
+        <form onSubmit={handleSubmit(onSubmit)}>
 
-      <div>
-      <div className='form-group'>
-  <label className="col-form-label">Name</label>
-  <input className='form-control' type="text" placeholder='enter name' onChange={(e) => setDetails({...details,name:e.target.value})}/>
-  
-  </div>
+        <div className='form-group'>
+          <h6>Gender</h6>
+          {
+            events?.map((item, index)=> 
+            <div className='form-check'>
+              <input className='form-check-input' type="checkbox" value={item.name} 
+                {...register(`events-${index+1}`, {required:"This field is required",})}/>
+              <label className="form-check-label">{item}</label>
+            </div>
+            )
+          }
+          
+          
+          {errors.name && (<small className='text-danger'>{errors.name.message}</small>)} 
+        </div>
+        </form>
 
-  <div className='form-group'>
-  <label className="col-form-label">Email</label>
-  <input className='form-control' type="email" placeholder='enter email' onChange={(e) => setDetails({...details,email:e.target.value})} />
-  
-  </div>
-  
-  <div style={{display: "flex",justifyContent: "center", alignItems: "center" }} >
-  <button className='btn btn-dark submit-btn rounded m-3 px-5' >Submit</button>
-  </div>
+        <div style={{display: "flex",justifyContent: "center", alignItems: "center" }} >
+          <button className='btn btn-dark submit-btn rounded m-3 px-5' type='submit' >
+            {loading ? 'Loading...' : 'Register' }
+            </button>
+        </div> 
+
+      
       </div>
-         
-
-</div>
-
-
     </div>
   );
 }

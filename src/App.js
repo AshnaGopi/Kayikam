@@ -17,6 +17,7 @@ import { useState } from 'react';
 import Student from './pages/Student';
 import Facultyform from './pages/Visiblepages/Facultyform';
 import Faculty from './pages/Faculty';
+import CertApp from './CertApp';
 
 
 function App() {
@@ -42,9 +43,10 @@ function App() {
         <Route path="/faculty/login">
           <Facultyform />
         </Route>
-        <Route path="*">
+        
+        {/* <Route path="*">
           <NotFound />
-        </Route>
+        </Route> */}
       </Switch>
     </Router>
 

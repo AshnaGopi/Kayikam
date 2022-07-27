@@ -31,6 +31,8 @@ function Home() {
                         alignItems: "center"
                     }}><button className='btn btn-dark submit-btn rounded m-3 px-5'><a href="/faculty/login" class="link" style={{ color: 'white', textDecoration: 'none' }}>Login for Faculty</a></button></div>
                     <a href='/faculty/facultydashboard' class='link'>Faculty</a>
+                    <a href='/student/dashboard' class='link'>Student</a>
+                    <a href='/student/certificate'>Certificate</a>
                 </div>
         </div>
     );

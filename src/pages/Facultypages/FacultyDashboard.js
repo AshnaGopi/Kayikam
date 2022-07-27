@@ -1,84 +1,100 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import '../Studentdashboard/Dashboard.css';
-// import img1 from '../img1.png'
-// import img2 from '../img2.png'
-// import img3 from '../img3.png'
-// import img4 from '../img4.png'
-// import img5 from '../img5.png'
+import img1 from '../Studentdashboard/img1.png'
+import img2 from '../Studentdashboard/img2.png'
+import img3 from '../Studentdashboard/img3.png'
+import img4 from '../Studentdashboard/img4.png'
+import img5 from '../Studentdashboard/img5.png'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import StudentLayout from '../../components/HOC/StudentLayout';
 import FacultyLayout from '../../components/HOC/FacultyLayout';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Vision from '../../components/Studentscomponents/Vision';
 
 function FacultyDashboard() {
   return (
-    <div className='come'>
+      <div>
 
-      <div className='col-sm-4 shadow rounded g-8'>
-
-        <Row  md={2} className="g-5">
+        <Col style={{width:"1000px"}}>
+        <CardGroup style={{ marginLeft: "220px", marginTop: "30px" }}>
+        <Row xs={1} md={3} className="g-5">
+          <Vision/>
           {Array.from({ length: 1 }).map((_, idx) => (
 
-            <Col>
             <Row>
+            <Col>
             
             <Link className='decor' to='/faculty/studentdetails'>
-                <Card className='card-p'>
-                  <Card.Img style={{ height: '70px' }} className='container-fit' variant="top"  />
+                <Card className='cardsp' style={{backgroundColor:"#000",height:"17vh"}}>
+                  <Card.Img className='container-fit' variant="top" src={img1}  />
                   <Card.Body >
-                    <Card.Title style={{ position: "relative", color: '#fff', textAlign: 'center', fontSize: '11px', marginBottom: "5px" }}>My Profile</Card.Title>
+                    <Card.Title style={{ position: "relative", color: '#fff', textAlign: 'center', fontSize: '11px', marginBottom: "5px" }}>Students</Card.Title>
                   </Card.Body>
                 </Card> </Link>
+
                 <Link className='decor' to='/faculty/generatecertificate'>
-          <Card className='card-c'>
-            <Card.Img className='containers' variant="top" />
+          <Card className='cardsc' style={{backgroundColor:"#000",height:"17vh"}}>
+            <Card.Img className='containers' variant="top" src={img3} />
             <Card.Body>
-              <Card.Title style={{ position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'11.5px',marginBottom:"5px" }}>Certificates</Card.Title>
+              <Card.Title style={{ position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'11.5px',marginBottom:"5px" }}>Certificate</Card.Title>
             </Card.Body>
           </Card>
           </Link>
 
+          </Col>
+
+          <Col>
+
           <Link className='decor' to='/faculty/resultannounce'>
-        <Card className='card-r'>
-            <Card.Img className='containers' variant="top"  />
+        <Card className='cardsr' style={{backgroundColor:"#000",height:"17vh"}}>
+            <Card.Img className='containers' variant="top" src={img4} />
             <Card.Body>
               <Card.Title style={{ position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'11px',marginBottom:"5px" }}>Results</Card.Title>
             </Card.Body>
           </Card>
         </Link>
-            </Row>
-
-            <Row>
+            
             
             <Link className='decor' to='faculty/eventreg'>
-        <Card className='card-e'>
-            <Card.Img className='container-fit' variant="top"  />
+        <Card className='cardse' style={{backgroundColor:"#000",height:"17vh"}}>
+            <Card.Img className='container-fit' variant="top" src={img2} />
             <Card.Body>
-              <Card.Title style={{position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'11px',marginBottom:"5px" }}>Events</Card.Title>
+              <Card.Title style={{position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'9px',marginBottom:"5px", }}>Registration</Card.Title>
             </Card.Body>
           </Card>
         </Link>
-
+        </Col>
+        <Col>
         <Link className='decor' to='/faculty/complaintforms'>
-          <Card className='card-m'>
-            <Card.Img className='containers' variant="top"  />
+          <Card className='cardsm' style={{backgroundColor:"#000",height:"17vh"}}>
+            <Card.Img className='containers' variant="top" src={img5} />
             <Card.Body>
               <Card.Title style={{position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'11px',marginBottom:"5px"}}>Complaints</Card.Title>
             </Card.Body>
           </Card>
           </Link>
-            
+
+          <Link className='decor' to='/faculty/news'>
+        <Card className='cardse' style={{backgroundColor:"#000",height:"17vh"}}>
+            <Card.Img className='container-fit' variant="top" src={img2} />
+            <Card.Body>
+              <Card.Title style={{position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'9px',marginBottom:"5px", }}>News</Card.Title>
+            </Card.Body>
+          </Card>
+        </Link>
+
+          </Col>
+
             </Row>
 
-            </Col>
-
           ))}
+          
         </Row>
-
-
-      </div>
+        </CardGroup>
+        </Col>
 
     </div>
 
