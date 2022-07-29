@@ -110,6 +110,8 @@ position: absolute;
   padding-bottom: 10px;
   padding-top: 20px;
   color: darkslategrey;
+  justify-content: space-between;
+  
 }
 
 th {

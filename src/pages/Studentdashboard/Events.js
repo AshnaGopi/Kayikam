@@ -26,14 +26,17 @@ function Events() {
      }, [user]);
 
      const getEvents = async () => {
-      const { data, error } = await supabase.from('events').select()
-      const eventsData = data.map((item) => item.name)
-      error ? seterror(true) : setevents(eventsData)
+      const { data, error } = await supabase.from('events').select('name').match({type: user?.user_metadata?.gender, })
+      error ? seterror(true) : setevents(data)
      }
 
-     const onSubmit = async (data) => {
-      console.log(data);
-     }
+    const onSubmit = async (data) => {
+      setloading(true)
+      data.student = user?.id
+      const student_events = await supabase.from('student_events').insert([data])  
+      student_events?.error && seterror(true)
+      setloading(false)
+    }
 
 
   return (
@@ -45,28 +48,49 @@ function Events() {
         <form onSubmit={handleSubmit(onSubmit)}>
 
         <div className='form-group'>
-          <h6>Gender</h6>
-          {
-            events?.map((item, index)=> 
-            <div className='form-check'>
-              <input className='form-check-input' type="checkbox" value={item.name} 
-                {...register(`events-${index+1}`, {required:"This field is required",})}/>
-              <label className="form-check-label">{item}</label>
-            </div>
-            )
-          }
-          
-          
-          {errors.name && (<small className='text-danger'>{errors.name.message}</small>)} 
+          <label htmlFor='event_1'>Event 1: </label>
+          <select className="form-select" 
+             {...register('event_1', {required:"This field is required",})}>
+            { events?.map((item)=>
+              <option key={item.name} value={item.name}>{item.name}</option>
+            )}
+          </select>
+          {errors.event_1 && (<small className='text-danger'>{errors.event_1.message}</small>)} 
+
         </div>
-        </form>
+
+        <div className='form-group'>
+          <label htmlFor='event_2'>Event 2: </label>
+          <select className="form-select" 
+            {...register('event_2', {required:"This field is required",})}>
+            { events?.map((item)=>
+              <option key={item.name} value={item.name}>{item.name}</option>
+            )}
+          </select>
+          {errors.event_2 && (<small className='text-danger'>{errors.event_2.message}</small>)} 
+
+        </div>
+
+        <div className='form-group'>
+          <label htmlFor='event_3'>Event 3: </label>
+          <select className="form-select" 
+            {...register('event_3', {required:"This field is required",})}>
+            { events?.map((item)=>
+              <option key={item.name} value={item.name}>{item.name}</option>
+            )}
+          </select>
+          {errors.event_3 && (<small className='text-danger'>{errors.event_3.message}</small>)} 
+
+        </div>
+
+       
 
         <div style={{display: "flex",justifyContent: "center", alignItems: "center" }} >
           <button className='btn btn-dark submit-btn rounded m-3 px-5' type='submit' >
             {loading ? 'Loading...' : 'Register' }
             </button>
         </div> 
-
+        </form>
       
       </div>
     </div>

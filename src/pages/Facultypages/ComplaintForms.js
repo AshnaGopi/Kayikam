@@ -9,25 +9,32 @@ import { supabase } from '../../Supabase';
 function ComplaintForms() {
 
 
-  const {user} = useAuthContext()
-  const [complaint, setcomplaint] = useState(null);
+  // const {user} = useAuthContext()
+  const [complaints, setcomplaints] = useState([]);
+  const [complaint, setcomplaint] = useState({email:"",complaintt:""})
+  const {email,complaintt} = complaint
+  async function fetchComplaints() {
+    const{data} = await supabase.from('complaints').select()
+    setcomplaints(data)
+    console.log(data)
+  }
   const [error, seterror] = useState(false);
 
   useEffect(() => {
-    user && getComplaints()
-  }, [user]);
+     fetchComplaints()
+  }, []);
 
-  const getComplaints = async () => {
-    const {data,error } = await supabase
-    .from('complaints')
-    .select(`
-        email,
-      complaint
-    `)
-    const complaintData = data.map((item) => item.name)
-      error ? seterror(true) : setcomplaint(complaintData)
-    // error ? seterror(true) : setevents(eventsData)
-   }
+  // const getComplaints = async () => {
+  //   const {data,error } = await supabase
+  //   .from('complaints')
+  //   .select(`
+  //       email,
+  //     complaint
+  //   `)
+  //   const complaintData = data.map((item) => item.name)
+  //     error ? seterror(true) : setcomplaint(complaintData)
+  //   // error ? seterror(true) : setevents(eventsData)
+  //  }
 
   // export const details= async(data) =>[
   //   {
@@ -50,24 +57,27 @@ function ComplaintForms() {
   return (
     <>
     <h1 className="text-center pt-3 text-secondary h2">Complaint Forms</h1>
+
     <div className='fa'>
-    <table>
+    <table >
       <tr>
         {/* <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Name</th> */}
         <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Email</th>
-        <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Complaint</th>
+        <th style={{borderBottom: "1px solid lightskyblue",paddingLeft:"350px"}}>Complaint</th>
       </tr>
-      {complaint.map((val, key) => {
-        return (
-          <tr key={key}>
+      
+          {complaints.map(complaint => (
+          // <tr style={{paddingRight:"10px",marginRight:"500px"}}>
+          <tr  key={complaint.id}>
             {/* <td>{val.name}</td> */}
-            <td>{val.email}</td>
-            <td>{val.complaint}</td>
+            <td style={{position:"flex",marginRight:"50px",paddingLeft:"100px",paddingRight:"50px"}}>{complaint.email}</td>
+            <td style={{marginRight:"50px",paddingLeft:"200px"}}>{complaint.complaint}</td>
+          {/* </tr> */}
           </tr>
-        )
-      })}
+        ))}
     </table> 
     </div >
+    
     </>
   );
 }

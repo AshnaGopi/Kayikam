@@ -2,8 +2,7 @@ import { useState } from 'react';
 import {useForm} from 'react-hook-form';
 import { useHistory } from "react-router-dom";
 import { signUp } from '../../SupabaseHelper';
-import { useAuthContext } from '../../store/Context';
-import { supabase } from '../../Supabase';
+
 
 
 
@@ -26,14 +25,14 @@ function Reg() {
         console.log(data);
         seterror(null)
         setloading(true)
-        const {error} = await supabase.auth.signUp({email: data.email, password: data.password,},{name:data.name,semester:data.semester,gender:data.gender,ktu_id:data.ktu_id,branch:data.branch,})
+        const {error} = await signUp({email: data.email, password: data.password, data:data})
         setloading(false)
         error ? seterror(error) : history.push('/student/dashboard')
     }
   
   return (
 
-    <div className='col-sm-4 shadow rounded g-5'>
+    <div className='col-sm-6 shadow rounded g-5'>
 <div>
   <h1 className="text-center pt-3 text-secondary h2">Register</h1>
 
@@ -50,7 +49,7 @@ function Reg() {
 
     {/* gender */}
     <div className='form-group'>
-      <h6>Gender</h6>
+      <h9>Gender</h9>
       <div className='form-check'>
         <label className="col-form-label">Male</label>
         <input className='form-check-input' type="radio" value='male' {...register("gender", {required:"This field is required",

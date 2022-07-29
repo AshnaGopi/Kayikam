@@ -38,7 +38,7 @@ export const Sidebarfaculty=[
     {
         title: 'News',
         path:"/faculty/news",
-        icon: <AiIcons.AiFillInfoCircle/>,
+        icon: <FaIcons.FaNewspaper/>,
         cName:"nav-text-size"
     },
     {

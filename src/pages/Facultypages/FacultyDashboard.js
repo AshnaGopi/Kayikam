@@ -6,10 +6,10 @@ import img2 from '../Studentdashboard/img2.png'
 import img3 from '../Studentdashboard/img3.png'
 import img4 from '../Studentdashboard/img4.png'
 import img5 from '../Studentdashboard/img5.png'
+import news from '../Studentdashboard/news.png'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
-import StudentLayout from '../../components/HOC/StudentLayout';
 import FacultyLayout from '../../components/HOC/FacultyLayout';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Vision from '../../components/Studentscomponents/Vision';
@@ -79,7 +79,7 @@ function FacultyDashboard() {
 
           <Link className='decor' to='/faculty/news'>
         <Card className='cardse' style={{backgroundColor:"#000",height:"17vh"}}>
-            <Card.Img className='container-fit' variant="top" src={img2} />
+            <Card.Img className='container-fit' variant="top" src={news} />
             <Card.Body>
               <Card.Title style={{position:"relative" ,color: '#fff', textAlign: 'center',fontSize:'9px',marginBottom:"5px", }}>News</Card.Title>
             </Card.Body>

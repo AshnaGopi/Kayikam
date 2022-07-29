@@ -18,6 +18,7 @@ import Student from './pages/Student';
 import Facultyform from './pages/Visiblepages/Facultyform';
 import Faculty from './pages/Faculty';
 import CertApp from './CertApp';
+import FacultyReg from './pages/Facultypages/FacultyReg';
 
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
         <Route path="/faculty/login">
           <Facultyform />
         </Route>
+        <Route path='/faculty/register'>
+          <FacultyReg/>
+        </Route>
         
         {/* <Route path="*">
           <NotFound />
@@ -53,3 +57,6 @@ function App() {
   )
 }
 export default App;
+
+
+// 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

@@ -24,7 +24,7 @@ function Faculty() {
        {/* <Navbar/> */}
        <Switch>
         
-       <Route path='/faculty/facultydashboard'>
+       <Route path='/faculty/dashboard'>
           <FacultyDashboard/>
        </Route>
         <Route path='/faculty/eventreg' >
