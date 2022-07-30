@@ -20,7 +20,7 @@ function Newsbar() {
      fetchNews()
   }, []);
   return (
-    <Card style={{flexDirection:"row-reverse", width: '20rem' ,maxHeight:"fit-content",marginLeft:"350px",}}>
+    <Card style={{flexDirection:"row-reverse" ,maxHeight:"fit-content",marginLeft:"300px",}}>
       <Card.Body >
         <Card.Title>News</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Physical Education Department</Card.Subtitle>
