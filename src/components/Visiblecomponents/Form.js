@@ -102,7 +102,13 @@ function Form() {
      formState: {errors},
     }=useForm();
    
+    const [errorMessages, setErrorMessages] = useState({});
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
+    // const errors = {
+    //   uname: "invalid username",
+    //   pass: "invalid password"
+    // };
   const history = useHistory()
 
 
@@ -110,6 +116,8 @@ function Form() {
   const [error, seterror] = useState(false);
 
  const onSubmit = async (data) => {
+ // data.preventDefault();
+
   console.log(data);
   const {error} = await signIn({email: data.email, password: data.password})
   error ? seterror(true) : history.push('/student/dashboard')
@@ -141,12 +149,14 @@ function Form() {
               <button type='submit' className='btn btn-dark submit-btn rounded m-3 px-5'>
                   {loading ? 'Loading...' : 'Sign In'}
               </button>
+              {/* {isSubmitted ? <div>User is successfully logged in</div> : ""} */}
             </div>
             <div className='text-center m-3'>
               don't have an account?
               <a href="/register" className="link">Register</a>
             </div>
-
+            
+            {/* { <p className='text-center text-base' style={{color:"red"}}>login unsuccessful</p> } */}
             </form>
 
           </div>

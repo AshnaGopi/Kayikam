@@ -35,7 +35,7 @@ function FacultyDashboard() {
                   </Card.Body>
                 </Card> </Link>
 
-                <Link className='decor' to='/faculty/generatecertificate'>
+                <Link className='decor' to="/faculty/certapp">
           <Card className='cardsc' style={{backgroundColor:"#000",height:"17vh"}}>
             <Card.Img className='containers' variant="top" src={img3} />
             <Card.Body>
@@ -58,7 +58,7 @@ function FacultyDashboard() {
         </Link>
             
             
-            <Link className='decor' to='faculty/eventreg'>
+            <Link className='decor' to='/faculty/eventreg'>
         <Card className='cardse' style={{backgroundColor:"#000",height:"17vh"}}>
             <Card.Img className='container-fit' variant="top" src={img2} />
             <Card.Body>

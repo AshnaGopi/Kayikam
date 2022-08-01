@@ -17,11 +17,11 @@ function Nav() {
                 Home
             </Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
             <Link className="nav-link" to="/aboutUs">
                 About Us
             </Link>
-        </li>
+        </li> */}
         <li className="nav-item">
             <Link className="nav-link" to="/student/login">
                 Login

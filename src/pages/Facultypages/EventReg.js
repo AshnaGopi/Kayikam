@@ -22,31 +22,44 @@ function EventReg() {
   return (
     <div>
       <h1 className="text-center pt-3 text-secondary h2">Event Registrations</h1>
+      <h2 style={{marginLeft:"200px",marginTop:"10px"}}>100m-Girls</h2>
     <div className='fa'>
     <table>
       <tr>
-        <th style={{paddingLeft:"210px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Name</th>
-        <th style={{paddingLeft:"210px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Sem</th>
+        <th style={{paddingLeft:"220px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Name</th>
+        <th style={{paddingLeft:"220px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Sem</th>
       </tr>
-      {registrations.map((registration) => {
-        return (
-          <tr key={registration.id}>
-            <td>{registration.name}</td>
-            <td>{registration.semester}</td>
+      {/* {registrations.map((registration) => { */}
+        {/* return ( */}
+          <tr>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>Nivedya</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>1</td>
           </tr>
-        )
-      })}
+          <tr>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>Ranjisha</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>5</td>
+          </tr>
+          <tr>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>Nandana</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>7</td>
+          </tr>
+          <tr>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>Ashna</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px"}}>6</td>
+          </tr>
+        {/* ) */}
+      {/* })} */}
     </table> 
     </div >
 
-    <h2 style={{marginLeft:"200px",marginTop:"10px"}}>Cricket</h2>
-    <div className='fa'>
+    {/* <h2 style={{marginLeft:"200px",marginTop:"10px"}}>Cricket</h2> */}
+    {/* <div className='fa'>
     <table>
       <tr>
-        <th style={{paddingLeft:"210px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Name</th>
-        <th style={{paddingLeft:"210px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Sem</th>
+        <th style={{paddingLeft:"210px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Nandana</th>
+        <th style={{paddingLeft:"210px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>5</th>
 
-      </tr>
+      </tr> */}
       {/* {registration.map((val, key) => {
         return (
           <tr key={key}>
@@ -56,8 +69,8 @@ function EventReg() {
           </tr>
         )
       })} */}
-    </table> 
-    </div >
+    {/* </table> 
+    </div > */}
     </div>
   );
 }

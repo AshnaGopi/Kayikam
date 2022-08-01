@@ -8,8 +8,9 @@ function Vision() {
       <Card.Title>Vision</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Physical Education Department</Card.Subtitle>
       <Card.Text>
-        Some quick example text to build on the card title and make up the
-        bulk of the card's content.
+        Be a centre of excellence in physical education to mould empowered aand physically fit 
+        engineers for the upliftment of the society.
+
       </Card.Text>
     </Card.Body>
   </Card>

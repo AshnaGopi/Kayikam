@@ -56,20 +56,20 @@ function Result() {
                     <tbody>
 
                       <tr key={result.id}>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.id - 1}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.first}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.semester}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>1</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>Nivedya</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>1</td>
 
                       </tr>
                       <tr>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.id}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.second}</td>
-                        <td style={{ paddingLeft: "110px", borderRight: "1px solid lightskyblue" }}>{result.semester}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>2</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>Ranjisha</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>4</td>
                       </tr>
                       <tr>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.id + 1}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.third}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>{result.semester}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>3</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>Nandana</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>6</td>
                       </tr>
                     </tbody>
                  

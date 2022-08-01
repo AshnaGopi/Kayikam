@@ -7,7 +7,7 @@ import * as IoIcons from 'react-icons/io';
 export const Sidebarfaculty=[
     {
         title: 'Home',
-        path:"/faculty/facultydashboard",
+        path:"/faculty/dashboard",
         icon: <AiIcons.AiFillHome/>,
         cName:"nav-text-size"
     },
@@ -25,7 +25,7 @@ export const Sidebarfaculty=[
     },
     {
         title: 'Generate Certificate',
-        path:"/faculty/generatecertificate",
+        path:"/faculty/certapp",
         icon: <AiIcons.AiOutlineBook/>,
         cName:"nav-text-size"
     },
