@@ -23,11 +23,13 @@ function Complaints() {
    
 
   const postData = async(data) =>{
+    setloading(true);
     console.log(data);
     const {error } = await supabase.from('complaints').insert([
       {student_id:data.id,email:data.email,complaint:data.complaint  }
+      
     ])
-   
+    setloading(false);
   }
 
 
@@ -58,7 +60,7 @@ function Complaints() {
   {errors.complaint && (<small className='text-danger'>{errors.complaint.message}</small>)}
   </div>
   <div style={{display: "flex",justifyContent: "center", alignItems: "center" }} >
-  <button className='btn btn-dark submit-btn rounded m-3 px-5' type='submit' onClick={postData} >{loading ? 'Loading...' : 'Submit' }</button>
+  <button className='btn btn-dark submit-btn rounded m-3 px-5' type='submit' >{loading ? 'Loading...' : 'Submit' }</button>
   </div>
       </form>
          

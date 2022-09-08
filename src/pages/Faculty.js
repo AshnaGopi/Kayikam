@@ -16,6 +16,7 @@ import ResultAnnouncement from './Facultypages/ResultAnnouncement';
 import ComplaintForms from './Facultypages/ComplaintForms';
 import CertApp from '../CertApp';
 import News from './Facultypages/News';
+import Lastcert from '../Certificate/Lastcert';
 
 
 function Faculty() {
@@ -32,7 +33,7 @@ function Faculty() {
         </Route>
         <Route path='/faculty/studentdetails'><StudentDetails/></Route>
         <Route path='/faculty/certapp'>
-          <CertApp/>
+          <Lastcert/>
         </Route>
         <Route path='/faculty/generatecertificate'><GenerateCertificate/></Route>
         <Route path='/faculty/news'><News/></Route>

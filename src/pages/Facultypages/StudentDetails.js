@@ -27,24 +27,26 @@ function StudentDetails() {
     <h2 className="text-center pt-3 text-secondary h2">Student Details</h2>
     
     <div className='fa'>
-    <table>
+    <table className='auto-index'>
       <tr>
-        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Name</th>
-        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Semester</th>
-        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Gender</th>
-        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>KTU ID</th>
-        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Branch</th>
-        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px"}}>Email</th>
+      <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>SL no</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>Name</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>Semester</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>Gender</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>KTU ID</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>Branch</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",paddingBottom:"10px",borderRight:"1px solid lightskyblue"}}>Email</th>
       </tr>
       {details.map((detail) => {
         return (
-          <tr key={detail.id}>
-            <td style={{paddingLeft:"30px",marginRight:"30px"}}>{detail.name}</td>
-            <td style={{paddingLeft:"30px",marginRight:"30px"}}>{detail.semester}</td>
-            <td style={{paddingLeft:"30px",marginRight:"30px"}}>{detail.gender}</td>
-            <td style={{paddingLeft:"30px",marginRight:"30px"}}>{detail.ktu_id}</td>
-            <td style={{paddingLeft:"30px",marginRight:"30px"}}>{detail.branch}</td>
-            <td style={{paddingLeft:"30px",marginRight:"30px",paddingRight:"30px"}}>{detail.email}</td>
+          <tr key={detail.semester}>
+             <td style={{paddingLeft:"30px",marginRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}></td>
+            <td style={{paddingLeft:"30px",marginRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{detail.name}</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{detail.semester}</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{detail.gender}</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{detail.ktu_id}</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{detail.branch}</td>
+            <td style={{paddingLeft:"30px",marginRight:"30px",paddingRight:"30px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{detail.email}</td>
           </tr>
         )
       })}

@@ -49,27 +49,27 @@ function Result() {
               <table>
                 <tr style={{ padding: "20px", borderBottom: "1px solid lightskyblue", borderRight: "1px solid lightskyblue" }}>
                   <th style={{ paddingLeft: "110px", borderBottom: "1px solid lightskyblue", borderRight: "1px solid lightskyblue" }}>Position</th>
-                  <th style={{ paddingLeft: "230px", borderBottom: "1px solid lightskyblue", borderRight: "1px solid lightskyblue" }}>Name</th>
+                  <th style={{ paddingLeft: "180px", borderBottom: "1px solid lightskyblue", borderRight: "1px solid lightskyblue" }}>Name</th>
                   <th style={{ paddingLeft: "110px", borderBottom: "1px solid lightskyblue", borderRight: "1px solid lightskyblue" }}>Sem</th>
                 </tr>
                 
                     <tbody>
 
                       <tr key={result.id}>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>1</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>Nivedya</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>1</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>1</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.first}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.sem1}</td>
 
                       </tr>
                       <tr>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>2</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>Ranjisha</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>4</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>2</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.second}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.sem2}</td>
                       </tr>
                       <tr>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>3</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>Nandana</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue" }}>6</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>3</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.third}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.sem3}</td>
                       </tr>
                     </tbody>
                  

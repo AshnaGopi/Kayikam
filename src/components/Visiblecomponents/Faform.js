@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { auth } from '../../firebase';
+// import { auth } from '../../firebase';
 import GeneralLayout from '../HOC/GeneralLayout';
 import { useHistory } from "react-router-dom";
 import {useForm} from 'react-hook-form';
@@ -21,8 +21,10 @@ function FaForm() {
    const [error, seterror] = useState(false);
  
   const onSubmit = async (data) => {
+    setloading(true)
    console.log(data);
    const {error} = await signIn({email: data.email, password: data.password})
+   setloading(false)
    error ? seterror(true) : history.push('/faculty/dashboard')
   }
 
@@ -30,10 +32,12 @@ function FaForm() {
 
 
   // const logout = () => {
-  //   signOut(auth).then(() => setUser(null)).catch((err) => {
-  //     const error = err.message
-  //   }
-  //   )
+  // //   signOut(auth).then(() => setUser(null)).catch((err) => {]
+  // const { error } = await supabase.auth.signOut()
+  // error ? seterror(true) : history.push('/')
+  // //     const error = err.message
+  // //   }
+  // //   )
   // }
 
 
@@ -63,7 +67,9 @@ function FaForm() {
               {errors.password && (<small className='text-danger'>{errors.password.message}</small>)}
             </div>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
-              <button className='btn btn-dark submit-btn rounded m-3 px-5'>Sign In</button>
+              <button className='btn btn-dark submit-btn rounded m-3 px-5'>
+              {loading ? 'Loading...' : 'Sign In'}
+              </button>
               {/* <a href='/faculty/facultydashboard' class='link'>Faculty</a> */}
             </div>
            

@@ -78,8 +78,18 @@ function Reg() {
 {/* semester */}
     <div className='form-group'>
     <label className="col-form-label">Semester</label>
-    <input className='form-control' type="text" placeholder='enter Semester' {...register("semester", {required:"This field is required"})}/>
-    {errors.semester && (<small className='text-danger'>{errors.semester.message}</small>)} 
+    <select className='form-select' title='Select' type="select" placeholder='enter Semester' {...register("semester", {required:"This field is required"})}>
+    <option></option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    </select> 
+    {errors.semester && (<small className='text-danger'>{errors.semester.message}</small>)}
     </div>
 
     {/* branch */}

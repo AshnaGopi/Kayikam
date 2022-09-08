@@ -8,7 +8,7 @@ import { supabase } from '../../Supabase';
 
 
 
-function Formresult(props) {
+function Formresult() {
 
   const {user} = useAuthContext()
 
@@ -50,7 +50,7 @@ function Formresult(props) {
 
 
   return (
-    <div className='com'>
+    <div className='com' style={{marginBottom:"450px"}}>
 
 
       <div className='col-sm-6 shadow rounded g-5' style={{ padding: '30px', }}>
@@ -72,7 +72,7 @@ function Formresult(props) {
             {/* first */}
             <div className='form-group'>
               <label className="col-form-label">First</label>
-              <select className="form-select" {...register('first', {required:"This field is required",})}>
+              <select  className="form-select" {...register('first', {required:"This field is required",})}>
               { students?.map((item)=>
                 <option key={item} value={item.id}>{item.ktu_id.toUpperCase()+' - '+item.name}</option>
                 )}

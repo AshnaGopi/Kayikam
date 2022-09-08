@@ -24,8 +24,8 @@ export default function Context({children}) {
     useEffect(() => {
       const authListner = supabase.auth.onAuthStateChange((event, session) => {
         if(event === 'SIGNED_IN'){
-          setuser(session?.user)
-          setsession(session)
+          // setuser(session?.user)
+          // setsession(session)
           setAuthenticated(true)
         }
         else if(event === 'SIGNED_OUT') 
@@ -45,7 +45,9 @@ export default function Context({children}) {
 
     return(
       <AuthContext.Provider value={{
-        user, setuser
+        user, setuser,
+        authenticated, setAuthenticated,
+            session, setsession,
       }}>
         {children}
       </AuthContext.Provider>

@@ -86,8 +86,8 @@
 
 
 import { useState } from 'react';
-import { auth } from '../../firebase';
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+// import { auth } from '../../firebase';
+// import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useHistory } from "react-router-dom";
 import GeneralLayout from '../HOC/GeneralLayout';
 import {useForm} from 'react-hook-form';
@@ -102,8 +102,8 @@ function Form() {
      formState: {errors},
     }=useForm();
    
-    const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    // const [errorMessages, setErrorMessages] = useState({});
+    // const [isSubmitted, setIsSubmitted] = useState(false);
 
     // const errors = {
     //   uname: "invalid username",
@@ -118,8 +118,10 @@ function Form() {
  const onSubmit = async (data) => {
  // data.preventDefault();
 
+ setloading(true)
   console.log(data);
   const {error} = await signIn({email: data.email, password: data.password})
+  setloading(false);
   error ? seterror(true) : history.push('/student/dashboard')
  }
 

@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  BrowserRouter
 } from "react-router-dom";
 import Home from './pages/Visiblepages/Home';
 import AboutUs from './pages/Visiblepages/AboutUs';
@@ -20,15 +21,36 @@ import Faculty from './pages/Faculty';
 import CertApp from './CertApp';
 import FacultyReg from './pages/Facultypages/FacultyReg';
 
+import Certificate from './pages/Studentdashboard/Certificate';
+import Events from './pages/Studentdashboard/Events';
+import Profile from './pages/Studentdashboard/Profile';
+import Result from './pages/Studentdashboard/Result';
+import Complaints from './pages/Studentdashboard/Complaints';
+import './AppS.css';
+
 
 function App() {
 
   return (
     <Router>
-      <Student/>
+      <Switch>
+      <Route path='/student/dashboard'>
+        <Dashboard/>
+         
+      </Route>
+       <Route path='/student/events' >
+         <Events/>
+       </Route>
+       <Route path='/student/profile'><Profile/></Route>
+       <Route path='/student/certificate'><Certificate/></Route>
+       <Route path='/student/result'><Result/></Route>
+       <Route path='/student/complaints'><Complaints/></Route>
+      </Switch>
+      {/* <Student/> */}
       <Faculty/>
       {/* <Faculty/> */}
       <Switch>
+      
         <Route exact path="/">
           <Home />
         </Route>
@@ -52,6 +74,7 @@ function App() {
           <NotFound />
         </Route> */}
       </Switch>
+      
     </Router>
 
   )

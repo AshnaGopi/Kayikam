@@ -24,32 +24,6 @@ function ComplaintForms() {
      fetchComplaints()
   }, []);
 
-  // const getComplaints = async () => {
-  //   const {data,error } = await supabase
-  //   .from('complaints')
-  //   .select(`
-  //       email,
-  //     complaint
-  //   `)
-  //   const complaintData = data.map((item) => item.name)
-  //     error ? seterror(true) : setcomplaint(complaintData)
-  //   // error ? seterror(true) : setevents(eventsData)
-  //  }
-
-  // export const details= async(data) =>[
-  //   {
-
-  //  const {error } = await supabase
-  //   .from('complaints')
-  //   .select(`
-  //     student (
-  //       email
-  //     ),
-  //     complaint
-  //   `)
-  //     }
-  // ]
-
  
 
     
@@ -59,19 +33,21 @@ function ComplaintForms() {
     <h1 className="text-center pt-3 text-secondary h2">Complaint Forms</h1>
 
     <div className='fa'>
-    <table >
+    <table className='auto-index'>
       <tr>
         {/* <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Name</th> */}
-        <th style={{paddingLeft:"120px",borderBottom: "1px solid lightskyblue"}}>Email</th>
-        <th style={{borderBottom: "1px solid lightskyblue",paddingLeft:"350px"}}>Complaint</th>
+        <th style={{paddingLeft:"50px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue"}}>SL no</th>
+        <th style={{paddingLeft:"150px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue"}}>Email</th>
+        <th style={{borderBottom: "1px solid lightskyblue",paddingLeft:"250px"}}>Complaint</th>
       </tr>
       
           {complaints.map(complaint => (
           // <tr style={{paddingRight:"10px",marginRight:"500px"}}>
           <tr  key={complaint.id}>
             {/* <td>{val.name}</td> */}
-            <td style={{position:"flex",marginRight:"50px",paddingLeft:"100px",paddingRight:"50px"}}>{complaint.email}</td>
-            <td style={{marginRight:"50px",paddingLeft:"200px"}}>{complaint.complaint}</td>
+            <td style={{position:"flex",marginRight:"80px",paddingLeft:"60px",paddingRight:"50px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}></td>
+            <td style={{position:"flex",marginRight:"80px",paddingLeft:"60px",paddingRight:"50px",borderBottom: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal"}}>{complaint.email}</td>
+            <td style={{marginRight:"50px",paddingLeft:"80px",borderBottom: "1px solid lightskyblue",fontWeight:"normal"}}>{complaint.complaint}</td>
           {/* </tr> */}
           </tr>
         ))}

@@ -27,9 +27,31 @@
 
   .retab{
     width: 100%;
-    margin-top:35%;
-    margin-left: 250px;
+    margin-bottom: 10px;
+    margin-left: 130px;
     max-height: fit-content;
+    max-width: fit-content;
     justify-content: center;
     align-items: center;
+
   }
+
+  .faa{
+    
+    margin-left: 100px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  body
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+
+.auto-index td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: " " counter(Serial); /* Display the counter */
+}

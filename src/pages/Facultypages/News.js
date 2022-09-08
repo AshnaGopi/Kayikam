@@ -19,11 +19,15 @@ function News() {
          formState:{errors},
        }=useForm()
 
+
        const postData = async(data) =>{
+        setloading(true);
+        
         console.log(data);
         const {error } = await supabase.from('news').insert([
           {date:data.date,news:data.news  }
         ])
+        setloading(false);
        
       }
     return (

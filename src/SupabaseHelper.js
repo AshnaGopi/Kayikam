@@ -78,3 +78,11 @@ export async function signIn({email, password}){
         error: error?.message
     }
 }
+
+export async function signOut({seterror, setloading, history}){
+    setloading(true)
+    const res = await supabase.auth.signOut()
+    res?.error ? seterror(true) : history.push('/student/login')
+    setloading(false)
+
+}

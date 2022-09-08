@@ -20,15 +20,15 @@ function Newsbar() {
      fetchNews()
   }, []);
   return (
-    <Card style={{flexDirection:"row-reverse" ,maxHeight:"fit-content",marginLeft:"300px",}}>
+    <Card style={{flexDirection:"row-reverse" ,maxHeight:"250px",marginLeft:"300px",marginBottom:"10px",overflowY:"auto"}}>
       <Card.Body >
         <Card.Title>News</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Physical Education Department</Card.Subtitle>
-        <Card.Text style={{position:"relative",maxWidth:"fit-content"}}>
+        <Card.Text style={{position:"relative",maxWidth:"fit-content",display:"flex",flexDirection:"column-reverse"}}>
          { updates.map((update)=>(
             <div key={update.id}>
-              <h9>{update.date}</h9>
-              <p>{update.news}</p>
+              <h9 style={{color:"blue",}}>{update.date}</h9>
+              <p style={{color:"black",}}>{update.news}</p>
             </div>
           ))
          }
