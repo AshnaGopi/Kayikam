@@ -1,17 +1,9 @@
-* {
-  box-sizing: border-box;
-  
-}
-.App {
-  font-family: "Hachi Maru Pop", cursive;
-  display: flex;
-  padding: 15px;
-}
-.App .Meta {
+
+.Meta {
   flex-grow: 1;
   padding-right: 15px;
 }
-.App .Meta input {
+ .Meta input {
   font-family: inherit;
   padding: 5px;
   width: 100%;
@@ -19,7 +11,7 @@
   border: 2px solid rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 }
-.App .Meta button {
+ .Meta button {
   padding: 10px 15px;
   border: 2px solid #87ceeb;
   background-color: #33f3fb;
@@ -28,22 +20,22 @@
   border-radius: 10px;
   cursor: pointer;
 }
-.App #downloadWrapper {
+ #downloadWrapper {
   padding: 20px;
 }
-.App #certificateWrapper {
+ #certificateWrapper {
   box-shadow: 0 0 5px #000;
   border-radius: 10px;
   /* height: 300px; */
   overflow: hidden;
   position: relative;
 }
-.App #certificateWrapper img {
+ #certificateWrapper img {
   display: block;
   block-size: 500px;
   
 }
-.App #certificateWrapper p {
+ #certificateWrapper p {
   font-family: "Staatliches", cursive;
   margin: 0;
   
@@ -52,7 +44,7 @@
   top: 180px;
   font-size: 20pt;
 }
-.App #certificateWrapper h1 {
+ #certificateWrapper h1 {
   font-family: "Staatliches", cursive;
   margin: 0;
   position: absolute;
@@ -67,7 +59,7 @@
     width:50%;
     
   }
-  .Appsu {
+  su {
     font-family: "Hachi Maru Pop", cursive;
     display: flex;
     flex-direction: row;

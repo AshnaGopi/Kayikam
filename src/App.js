@@ -27,13 +27,20 @@ import Profile from './pages/Studentdashboard/Profile';
 import Result from './pages/Studentdashboard/Result';
 import Complaints from './pages/Studentdashboard/Complaints';
 import './AppS.css';
+import FacultyDashboard from './pages/Facultypages/FacultyDashboard';
+import EventReg from './pages/Facultypages/EventReg';
+import StudentDetails from './pages/Facultypages/StudentDetails';
+import GenerateCertificate from './pages/Facultypages/GenerateCertificate';
+import ResultAnnouncement from './pages/Facultypages/ResultAnnouncement';
+import News from './pages/Facultypages/News';
+import Lastcert from './Certificate/Lastcert';
+import ComplaintForms from './pages/Facultypages/ComplaintForms';
 
 
 function App() {
 
   return (
     <Router>
-      <Faculty/>
       <Switch>
       <Route path='/student/dashboard'>
         <Dashboard/>
@@ -70,6 +77,20 @@ function App() {
         <Route path='/faculty/register'>
           <FacultyReg/>
         </Route>
+        <Route path='/faculty/dashboard'>
+          <FacultyDashboard/>
+       </Route>
+        <Route path='/faculty/eventreg' >
+          <EventReg/>
+        </Route>
+        <Route path='/faculty/studentdetails'><StudentDetails/></Route>
+        <Route path='/faculty/certapp'>
+          <Lastcert/>
+        </Route>
+        <Route path='/faculty/generatecertificate'><GenerateCertificate/></Route>
+        <Route path='/faculty/news'><News/></Route>
+        <Route path='/faculty/resultannounce'><ResultAnnouncement/></Route>
+        <Route path='/faculty/complaintforms'><ComplaintForms/></Route>
         
         {/* <Route path="*">
           <NotFound />

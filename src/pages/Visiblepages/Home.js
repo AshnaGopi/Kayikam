@@ -1,7 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import GeneralLayout from '../../components/HOC/GeneralLayout';
 
 function Home() {
+
+    let history = useHistory();
 
     return (
         <div>
@@ -24,12 +27,12 @@ function Home() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center"
-                    }}><button className='btn btn-dark submit-btn rounded m-3 px-5'><a href="/student/login" class="link" style={{ color: 'white', textDecoration: 'none' }}>Login for Student</a></button></div>
+                    }}><button className='btn btn-dark submit-btn rounded m-3 px-5' onClick={()=> history.push('/login/student')}>Login for Student</button></div>
                     <div style={{
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center"
-                    }}><button className='btn btn-dark submit-btn rounded m-3 px-5'><a href="/faculty/login" class="link" style={{ color: 'white', textDecoration: 'none' }}>Login for Faculty</a></button></div>
+                    }}><button className='btn btn-dark submit-btn rounded m-3 px-5' onClick={()=> history.push('/faculty/login')}>Login for Faculty</button></div>
                     {/* <a href='/faculty/facultydashboard' class='link'>Faculty</a>
                     <a href='/student/dashboard' class='link'>Student</a>
                     <a href='/student/certificate'>Certificate</a> */}

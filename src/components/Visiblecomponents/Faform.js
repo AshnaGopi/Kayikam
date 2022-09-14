@@ -22,7 +22,6 @@ function FaForm() {
  
   const onSubmit = async (data) => {
     setloading(true)
-   console.log(data);
    const {error} = await signIn({email: data.email, password: data.password})
    setloading(false)
    error ? seterror(true) : history.push('/faculty/dashboard')

@@ -2,21 +2,16 @@ import React from 'react';
 import { useEffect } from 'react';
 import { supabase } from '../../Supabase';
 import StudentLayout from '../../components/HOC/StudentLayout';
-import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
 
 function Result() {
 
-  const [error, seterror] = useState(false);
   const [user, setuser] = useState(false);
 
   const [results, setresults] = useState([]);
-  const [result, setresult] = useState({ name1: "", semester1: "" })
-  const { nam1, sem1 } = result
   async function fetchResults() {
-    const { data } = await supabase.from('result').select()
+    const { data } = await supabase.from('result').select(`*,first(*), second(*), third(*)`)
     setresults(data)
-    console.log(data)
   }
 
   useEffect(() => {
@@ -39,11 +34,11 @@ function Result() {
            
             
 
-{results.map((result) => {
+{results?.map((result) => {
   return(
     <>
     
-    <h2 style={{ marginLeft: "200px", marginTop: "10px" }}>{result.event}</h2>
+    <h2 style={{ marginLeft: "200px", marginTop: "10px" }}>{result?.event}</h2>
           
             <div className='fa'>
               <table>
@@ -54,22 +49,21 @@ function Result() {
                 </tr>
                 
                     <tbody>
-
-                      <tr key={result.id}>
+                      <tr key={result?.id}>
                         <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>1</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.first}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.sem1}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result?.first?.name}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result?.first?.semester}</td>
 
                       </tr>
                       <tr>
                         <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>2</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.second}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.sem2}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result?.second?.name}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result?.second?.semester}</td>
                       </tr>
                       <tr>
                         <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>3</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.third}</td>
-                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result.sem3}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result?.third?.name}</td>
+                        <td style={{ paddingLeft: "30px", borderRight: "1px solid lightskyblue",borderRight:"1px solid lightskyblue",fontWeight:"normal" }}>{result?.third?.semester}</td>
                       </tr>
                     </tbody>
                  

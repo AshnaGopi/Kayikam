@@ -5,7 +5,7 @@ import { useState } from "react";
 import { exportComponentAsPNG } from "react-component-export-image";
 import FacultyLayout from "../components/HOC/FacultyLayout";
 import cert from './cert.png' ;
-//import './Cert.css';
+import './Cert.css';
 
 class Lastcert extends Component {
   // function App() {
