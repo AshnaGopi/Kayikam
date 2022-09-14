@@ -61,8 +61,10 @@ function Events() {
 
         <div className='form-group'>
           <label htmlFor='event_2'>Event 2: </label>
-          <select className="form-select" 
-            {...register('event_2', {required:"This field is required",})}>
+          <select title='Select' className="form-select" 
+            {...register('event_2', 
+            // {required:"This field is required",}
+            )}>
             { events?.map((item)=>
               <option key={item.name} value={item.name}>{item.name}</option>
             )}
@@ -74,7 +76,9 @@ function Events() {
         <div className='form-group'>
           <label htmlFor='event_3'>Event 3: </label>
           <select className="form-select" 
-            {...register('event_3', {required:"This field is required",})}>
+            {...register('event_3', 
+            // {required:"This field is required",}
+            )}>
             { events?.map((item)=>
               <option key={item.name} value={item.name}>{item.name}</option>
             )}

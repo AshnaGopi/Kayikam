@@ -3,8 +3,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState } from "react";
 import { exportComponentAsPNG } from "react-component-export-image";
+import FacultyLayout from "../components/HOC/FacultyLayout";
 import cert from './cert.png' ;
-// import './Cert.css';
+//import './Cert.css';
 
 class Lastcert extends Component {
   // function App() {
@@ -17,7 +18,7 @@ class Lastcert extends Component {
  
     render() {
     return (
-      <div className="Appsu">
+      <div className="App">
        <Row>
 
 
@@ -71,4 +72,4 @@ class Lastcert extends Component {
 }
 
 
-export default Lastcert;
+export default FacultyLayout(Lastcert);

@@ -33,6 +33,7 @@ function App() {
 
   return (
     <Router>
+      <Faculty/>
       <Switch>
       <Route path='/student/dashboard'>
         <Dashboard/>
@@ -45,11 +46,11 @@ function App() {
        <Route path='/student/certificate'><Certificate/></Route>
        <Route path='/student/result'><Result/></Route>
        <Route path='/student/complaints'><Complaints/></Route>
-      </Switch>
+      {/* </Switch> */}
       {/* <Student/> */}
-      <Faculty/>
+      
       {/* <Faculty/> */}
-      <Switch>
+      {/* <Switch> */}
       
         <Route exact path="/">
           <Home />

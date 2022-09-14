@@ -23,12 +23,12 @@ export const Sidebar=[
         icon: <AiIcons.AiOutlineThunderbolt/>,
         cName:"nav-text"
     },
-    {
-        title: 'Certificate',
-        path:"/student/certificate",
-        icon: <AiIcons.AiOutlineBook/>,
-        cName:"nav-text"
-    },
+    // {
+    //     title: 'Certificate',
+    //     path:"/student/certificate",
+    //     icon: <AiIcons.AiOutlineBook/>,
+    //     cName:"nav-text"
+    // },
     {
         title: 'Results',
         path:"/student/result",
